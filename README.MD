@@ -11,7 +11,7 @@ Os diretórios desta secção estão organizados por contexto de utilização ou
 
 ## 💻 Comandos
 
-- [COMANDOS](./terraformfile/comandos)  
+- [COMANDOS](./terraformfile/comandos.md)  
   Contém script Terraform com comandos comuns, como INIT, APPLY, DESTROY, criação de variáveis, condicionais.
 
 ## 📂 Projetos
