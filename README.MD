@@ -11,10 +11,10 @@ Os diretórios desta secção estão organizados por contexto de utilização ou
 
 ## 💻 Comandos
 
-- [COMANDOS](./dockerfile/terraform_aws_ec2)  
+- [COMANDOS](./terraformfile/comandos)  
   Contém script Terraform com comandos comuns, como INIT, APPLY, DESTROY, criação de variáveis, condicionais.
 
 ## 📂 Projetos
 
-- [Recursos AWS](./dockerfile/terraform_aws_recursos)  
+- [Recursos AWS](./terraformfile/terraform_aws_recursos)  
   Contém diversos scripts Terraform com pequenos projetos utilizando AWS.
