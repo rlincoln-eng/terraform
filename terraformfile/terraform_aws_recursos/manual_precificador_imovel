@@ -1,0 +1,82 @@
+#Manual de uso do projeto
+
+=====================================================================
+=                                                                   =
+=                    Organização de diretório                       =
+=                                                                   =
+=====================================================================
+
+precifica_imovel
+|
+|-Dockerfile
+|
+|-LEIAME.txt
+|
+|-lab/
+   |
+   |-iac/
+      |
+      |-main.tf
+      |
+      |-upload_to_s3.sh
+   |-ml/
+     |
+     |-app.py
+     |
+     |-modelo.pkl
+     |
+     |-templates/
+          |
+          |-index.html
+
+=====================================================================
+=                                                                   =
+=                    Instruções de execução                         =
+=                                                                   =
+=====================================================================
+
+##Passo 1
+ Criar arquivo Dockerfile para subir imagem que será utilizada
+
+##Passo 2 
+ Criar imagem que será utilizada para desenvolvimento do lab
+ Acessar CMD e navegar até pasta onde arquivo Dockerfile foi salvo
+ Executar comando abaixo para criar a imagem
+
+ docker build -t precifica-imovel:lab1 .
+
+##Passo 3 
+ Criar container e cria volume que serão utilizados para deploy de aplicação
+ docker run -dit --name precifica-imovel -v <SEU DIRETORIO>\precifica_imovel\lab:/lab precifica-imovel:lab1 /bin/bash
+
+##Passo 4
+ Acessar terminal via Docker para configurar chaves AWS para conseguir automatizar infra. 
+ Use o comando abaixo e insira suas credenciais
+ aws configure
+
+##Passo 5
+ Confira se todos diretorios estao conforme o esperado, volumes criados.
+
+##Passo 6 
+ Criar arquivos terraform para configurar ambientes na AWS para rodar web server em PRD.
+ Neste projeto serão consumidos os itens abaixo
+ -EC2 : Maquina onde modelo e web server serão processados
+ -S3  : Local onde será salvo modelo
+ -IAM : Configuração de comunicação entre EC2 e S3
+
+ Ainda nesta secção terá a configuração de portas de entrada e saída
+
+##Passo 7 
+ Inicie o terraform 
+ terraform init
+
+##Passo 8 
+ Verifique o plano de execução
+ terraform plan
+
+##Passo 9
+ Execute o plano terraform
+ terraform apply
+
+##Passo 10
+ Verifique o resultado acessando a dns publica
